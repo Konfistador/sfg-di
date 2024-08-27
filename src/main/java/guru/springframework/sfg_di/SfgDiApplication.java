@@ -1,6 +1,7 @@
 package guru.springframework.sfg_di;
 
 import guru.springframework.sfg_di.controllers.*;
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -11,7 +12,7 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx =  SpringApplication.run(SfgDiApplication.class, args);
 
-		I18nController i18nController = (I18nController) ctx.getBean("I18nController");
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
 		System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
@@ -20,6 +21,7 @@ public class SfgDiApplication {
 		System.out.println(myController.sayHello());
 
 		System.out.println("------ Property");
+
 
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
 		System.out.println(propertyInjectedController.getGreeting());
